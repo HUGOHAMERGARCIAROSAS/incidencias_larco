@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Incrementado el ancho máximo */
+    width: 100%;
+}
+
+.rating-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-section {
+    margin-bottom: 20px;
+}
+
+.taxista-photo {
+    width: 150px; /* Incrementado el tamaño de la foto */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.input-section {
+    width: 100%;
+}
+
+.input-section label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.input-section input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.rating-section {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    font-size: 30px;
+    color: #ccc;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.stars input:checked ~ label,
+.stars input:checked ~ label ~ label {
+    color: #ffcc00;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) { /* Ajuste de media query para el nuevo ancho */
+    .container {
+        padding: 10px;
+    }
+
+    .taxista-photo {
+        width: 120px; /* Ajuste de tamaño en dispositivos más pequeños */
+        height: 120px;
+    }
+
+    .input-section input {
+        padding: 6px;
+    }
+
+    .stars label {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}

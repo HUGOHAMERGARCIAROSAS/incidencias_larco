@@ -1,0 +1,186 @@
+section {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #0056b3;
+  width: 30%;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Asegura que el padding y border no afectan el tamaño total */
+  font-size: 16px; /* Tamaño de fuente consistente */
+}
+
+.form-group select {
+  /* Opcional: Aplica estilos adicionales específicos para select */
+  appearance: none; /* Remueve el estilo por defecto del select en algunos navegadores */
+  background: #fff; /* Fondo blanco para el select */
+}
+
+.search-location{
+  background-color: #28a745;
+}
+
+.search-red{
+  background-color: #dc3545;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .btn-secondary {
+    background-color: #0056b3;
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+  }
+  .search-location{
+    background-color: #28a745;
+  }
+
+  .search-red{
+    background-color: #dc3545;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 10px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding y border no afectan el tamaño total */
+    font-size: 16px; /* Tamaño de fuente consistente */
+  }
+
+  .form-group select {
+    /* Opcional: Aplica estilos adicionales específicos para select */
+    appearance: none; /* Remueve el estilo por defecto del select en algunos navegadores */
+    background: #fff; /* Fondo blanco para el select */
+  }
+
+  .btn-secondary {
+    background-color: #0056b3;
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+  }
+  .search-location{
+    background-color: #28a745;
+  }
+
+  .search-red{
+    background-color: #dc3545;
+  }
+}

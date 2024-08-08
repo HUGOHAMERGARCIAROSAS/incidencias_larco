@@ -1,0 +1,38 @@
+/* Table.css */
+.table-container {
+    overflow-x: auto; 
+    margin: 20px; /* Espaciado alrededor de la tabla */
+  }
+  
+  .my-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* Centra la tabla */
+    min-width: 600px; /* Asegura un ancho mínimo para la tabla */
+  }
+  
+  .my-table th, .my-table td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Más espacio interno en celdas */
+    text-align: left;
+  }
+  
+  .my-table th {
+    background-color: #4CAF50; /* Color de fondo para encabezados */
+    color: white; /* Color del texto en los encabezados */
+  }
+  my-table
+  .my-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color alternativo para filas pares */
+  }
+  
+  .my-table tr:hover {
+    background-color: #ddd; /* Color al pasar el ratón sobre una fila */
+  }
+  
+  /* Estilos para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .my-table th, .my-table td {
+      padding: 8px; /* Menos espacio en celdas en pantallas pequeñas */
+    }
+  }

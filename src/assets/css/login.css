@@ -1,0 +1,180 @@
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .login-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-content {
+    width: 300px;
+    padding: 20px;
+  }
+  
+  .google-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .separator {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .input-container {
+    margin-bottom: 10px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #d0d0d0;
+  }
+
+  .input-search{ 
+    /* width: 100%; */
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #4a90e2;
+    margin-left: 10px;
+    background-color: #4a90e2;
+    color: #fff;
+  }
+  
+  .login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .forgot-password {
+    color: #a0a0a0;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+  .register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  .input_logo_container{
+    display: flex;
+    align-items: center;
+  }
+
+  .login-register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  .register-login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+  
+  .signup-link {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .login-image {
+    flex: 1;
+    background: url('/images/login/taxes.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente para resaltar el texto */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+  }
+  
+  .academy-button {
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+
+  .login-description{
+    word-break : break-word;
+    text-decoration: inherit;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  .login-date{
+    font-size: 12px;
+    color: #a0a0a0;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .login-container {
+      flex-direction: row;
+    }
+  
+    .form-content {
+      width: 300px;
+    }
+  
+    .login-image {
+      flex: 1;
+      padding: 0;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .form-content {
+      width: 400px;
+    }
+  }
