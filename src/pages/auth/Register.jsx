@@ -55,15 +55,14 @@ const Register = () => {
         });
     };
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
         if (e.key === 'Enter' || e.type === 'click') {
 
             if (documento === "" || documento.length !== 8) return;
 
-            setLoading(true);
-
             try {
-                axios.get(`${dominio}/api/public/searchUser/${documento}`).then(response => {
+                await axios.get(`${dominio}/api/public/searchUser_telemedicina/${documento}`).then(response => {
+                    setLoading(true);
                     setInfo({
                         ...info,
                         persona: response.data.person,
@@ -90,7 +89,7 @@ const Register = () => {
             return;
         }
         try {
-            axios.post(`${dominio}/api/public/user/register`, userCreate).then(response => {
+            axios.post(`${dominio}/api/public/user/register_telemedicina`, userCreate).then(response => {
                 dispatch(loginUser({ per_login: userCreate.per_login, password: userCreate.password }));
                 navigate("/dashboard", { replace: true });
             });
@@ -134,7 +133,7 @@ const Register = () => {
         }
 
         try {
-            axios.post(`${dominio}/api/public/user/registerPerson`, persona).then(response => {
+            axios.post(`${dominio}/api/public/user/registerPerson_telemedicina`, persona).then(response => {
                 if (response.data.error) return toast.error(response.data.error);
                 dispatch(loginUser({ per_login: persona.documento, password: persona.password }));
                 navigate("/dashboard", { replace: true });
@@ -151,8 +150,7 @@ const Register = () => {
                 <div className="overlay">
                     <h2>Sistema de Incidencias de Victor Larco Herrera</h2>
                     <p className="login-description">
-                        Es el servicio que ofrece la municipalidad distrital de Victor Larco Herrera que permite registrar y gestionar las incidencias como violencia,
-                        vandalismo, robo, radicalismo, personas sordas, agresion sexual, acoso, entre otros.
+                        Es el servicio que ofrece la municipalidad distrital de Victor Larco Herrera que permite registrar y gestionar las consultas médicas de los vecinos.
                     </p>
                 </div>
             </div>

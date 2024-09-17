@@ -22,9 +22,14 @@ const MisDatos = () => {
   const [datos, setDatos] = useState({
     per_codigo: user?.per_codigo,
     password: "",
-    password_confirm: ""
+    password_confirm: "",
+    actualizaPassword: false,
+    cmp: user?.cmp,
+    especialidad: user?.especialidad,
   });
 
+  const [actualiza, setActualiza] = useState(false);
+  const [guardando, setGuardando] = useState(false);
 
 
   const handleChange = (e) => {
@@ -34,31 +39,48 @@ const MisDatos = () => {
 
   const handleSubmitPassword = (e) => {
     e.preventDefault();
-
-    if (datos.password !== datos.password_confirm) {
-      toast.error("Las contraseñas no coinciden");
-      return;
+    setGuardando(true);
+    if (datos.actualizaPassword === true) {
+      if (datos.password !== datos.password_confirm) {
+        toast.error("Las contraseñas no coinciden");
+        return;
+      }
     }
-
     try {
-      axios.post(`${dominio}/api/private/user/updatePassword`, datos, {
+      axios.post(`${dominio}/api/private/user/updatePassword_telemedicina`, datos, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       })
         .then(response => {
-          toast.success("Contraseña actualizada exitosamente");
+
+          let copiaDatos = { ...user }
+
+          copiaDatos.cmp = datos.cmp;
+          copiaDatos.especialidad = datos.especialidad;
+
+          localStorage.setItem('user', JSON.stringify(copiaDatos));
+
           setDatos({
             ...datos,
             password: "",
             password_confirm: ""
-          })
+          });
+          setActualiza(false);
+          setGuardando(false);
+          toast.success("Datos actualizados exitosamente");
         })
     } catch (error) {
-      console.log(error);
+      console.log("Error al actualizar los datos:", error);
     }
+
   };
 
+
+  const handleActualizar = () => {
+    datos.actualizaPassword = !actualiza;
+    setActualiza(!actualiza);
+  };
 
 
   return (
@@ -76,25 +98,43 @@ const MisDatos = () => {
               <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" value={user?.nombres || ""} required readOnly />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Usuario</label>
+              <label htmlFor="email">Usuario / DNI</label>
               <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" value={user?.per_login || ""} required readOnly />
             </div>
             <form onSubmit={handleSubmitPassword}>
-              <div className="form-group">
-                <label htmlFor="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" onChange={handleChange} required />
+              <div className='form-group'>
+                <label htmlFor="cmp">CMP</label>
+                <input type="text" id="cmp" name="cmp" placeholder="Ingresa tu CMP" onChange={handleChange} value={datos?.cmp || ""} required />
               </div>
-              <div className="form-group">
-                <label htmlFor="password_confirm">Confirmar contraseña</label>
-                <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar tu contraseña" onChange={handleChange} required />
+              <div className='form-group'>
+                <label htmlFor="especialidad">Especialidad</label>
+                <input type="text" id="especialidad" name="especialidad" placeholder="Ingresa tu especialidad" value={datos?.especialidad || ""} onChange={handleChange} required />
               </div>
-              <button type="submit"><FaRegSave className='icons-length' size={15} /> Enviar</button>
+              <div className='form-group'>
+                <label htmlFor="editEspecialidad">Editar contraseña</label>
+                <input type="checkbox" id="editEspecialidad" name="editEspecialidad" onChange={handleChange} checked={actualiza} onClick={handleActualizar} />
+              </div>
+              {
+                actualiza === true ? (
+                  <div>
+                    <div className="form-group">
+                      <label htmlFor="password">Contraseña</label>
+                      <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" onChange={handleChange} required />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="password_confirm">Confirmar contraseña</label>
+                      <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar tu contraseña" onChange={handleChange} required />
+                    </div>
+                  </div>
+                ) : null
+              }
+              <button type="submit"><FaRegSave className='icons-length' size={15} /> {guardando === true ? "Actualizando" : "Guardar"}</button>
             </form>
           </div>
-        </section>
-      </main>
+        </section >
+      </main >
       <ToastContainer closeButton={false} autoClose={2000} />
-    </div>
+    </div >
   )
 }
 

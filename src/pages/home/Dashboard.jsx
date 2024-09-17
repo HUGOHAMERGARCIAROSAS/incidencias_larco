@@ -3,7 +3,7 @@ import '../../assets/css/layout.css';
 import Sidebar from '../../pages/layout/Sidebar';
 import Header from '../../pages/layout/Header';
 import useSidebar from '../../hooks/useSidebar';
-
+const baseUrl = import.meta.env.BASE_URL;
 
 const Dashboard = () => {
   const { isSidebarOpen, toggleSidebar, sidebarRef } = useSidebar();
@@ -16,7 +16,7 @@ const Dashboard = () => {
       <main className="main-content">
         <Header toggleSidebar={toggleSidebar} />
         <section className="stats">
-          <img src='/images/fondo.jpg' className='fondo-dashboard' />
+          <img src={`${baseUrl}images/fondo.jpg`} className='fondo-dashboard' />
         </section>
       </main>
     </div>

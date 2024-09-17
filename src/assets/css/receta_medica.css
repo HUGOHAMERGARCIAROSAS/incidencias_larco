@@ -1,0 +1,83 @@
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+
+.receta-medica {
+  width: 21cm;
+  padding: 20px;
+  border: 1px solid #000;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.datos-medico {
+  text-align: right;
+}
+
+.datos-paciente {
+  margin-bottom: 20px;
+}
+
+.datos-paciente p {
+  margin: 5px 0;
+}
+
+.indicaciones {
+  margin-bottom: 20px;
+}
+
+.indicaciones h3 {
+  margin-bottom: 10px;
+}
+
+.indicaciones ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.indicaciones li {
+  margin-bottom: 5px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.firma {
+  text-align: right;
+}
+
+.fecha-footer {
+  text-align: right;
+  padding-right: 20px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

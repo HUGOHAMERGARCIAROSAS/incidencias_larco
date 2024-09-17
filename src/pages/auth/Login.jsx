@@ -22,6 +22,8 @@ const Login = () => {
     password: ""
   });
 
+  const baseUrl = import.meta.env.BASE_URL;
+
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleChange = (e) => {
@@ -43,6 +45,11 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (credentials.per_login === "" || credentials.password === "") {
+      toast.error("Por favor, rellene todos los campos");
+      return;
+    }
 
     try {
       const loginPromise = dispatch(loginUser(credentials)).unwrap();
@@ -90,7 +97,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-form">
         <div className="form-content">
-          <img src="/images/login/mdvlh.png" />
+          <img src={`${baseUrl}images/login/mdvlh.png`} />
           <h1>INICIAR SESIÓN</h1>
           <form onSubmit={handleSubmit}>
             <div className="input-container">
@@ -136,16 +143,15 @@ const Login = () => {
             ><FaSignInAlt size={15} style={{ marginRight: "5px", marginLeft: "5px" }} />
               {loading ? "Iniciando sesión..." : "Iniciar sesión"}
             </button>
-            <button type="button" className="register-button" onClick={() => navigate("/register")}><FaRegPlusSquare size={15} style={{ marginRight: "5px", marginLeft: "5px" }} /> Registrarse</button>
+            {/* <button type="button" className="register-button" onClick={() => navigate("/register")}><FaRegPlusSquare size={15} style={{ marginRight: "5px", marginLeft: "5px" }} /> Registrarse</button> */}
           </form>
         </div>
       </div>
       <div className="login-image">
         <div className="overlay">
-          <h2>Sistema de Incidencias de Victor Larco Herrera</h2>
+          <h2>Telemedicina con Clement</h2>
           <p className="login-description">
-            Es el servicio que ofrece la municipalidad distrital de Victor Larco Herrera que permite registrar y gestionar las incidencias como violencia,
-            vandalismo, robo, radicalismo, personas sordas, agresion sexual, acoso, entre otros.
+            Es el servicio que ofrece la municipalidad distrital de Victor Larco Herrera que permite registrar y gestionar las consultas médicas de los vecinos.
           </p>
         </div>
       </div>

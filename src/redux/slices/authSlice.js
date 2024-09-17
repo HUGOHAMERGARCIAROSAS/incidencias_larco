@@ -6,7 +6,7 @@ export const loginUser = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const dominio = import.meta.env.VITE_API_URL;
-      const url = `${dominio}/api/public/login`;
+      const url = `${dominio}/api/public/login_telemedicina`;
       const request = await axios.post(url, credentials);
       const response = await request.data;
       localStorage.setItem("token", response.token);
